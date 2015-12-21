@@ -47,7 +47,7 @@ module RailsAdmin
         # to those which the user can perform the given action on.
         def query(action, abstract_model)
           begin
-            @controller.policy_scope(abstract_model.model.all)
+            @controller.policy_scope(abstract_model.model)
           rescue ::Pundit::NotDefinedError
             abstract_model.model.all
           end
